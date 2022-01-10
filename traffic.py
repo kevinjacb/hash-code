@@ -1,6 +1,8 @@
 import math
 
-with open("a.txt", "r", encoding="utf-8") as f:
+input_file = "a.txt"
+
+with open(input_file, "r", encoding="utf-8") as f:
     data = f.read()
 
 input = data.split("\n")
@@ -128,9 +130,9 @@ with open("output.txt",'w',encoding='utf-8') as f:
             if intersection_in[freq] == i:
                 f.write(freq+ " "+str(car_freq[freq])+"\n")
 
-print(street_des)
-print(intersection_in)
-print(cars_through_street)
-print(street_last_car_time)
-print(car_freq)
-print(has_schedule)
+# print(street_des)
+# print(intersection_in)
+# print(cars_through_street)
+# print(street_last_car_time)
+# print(car_freq)
+# print(has_schedule)
