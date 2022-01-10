@@ -111,7 +111,9 @@ for car in rd.car_paths:
             break
         time_elapsed += waiting_time_intersection(car[i],time_elapsed,queue[car[i]][time_elapsed],car_freq_elapsed[car[i]],intersection_cycle_time[rd.intersection_in[car[i]]])
 
-    if time_elapsed < int(rd.duration):
+    print(time_elapsed)
+    if time_elapsed <= int(rd.duration):
         total_points += int(rd.points)
+        total_points += int(rd.duration) - time_elapsed
 
 print(total_points)
