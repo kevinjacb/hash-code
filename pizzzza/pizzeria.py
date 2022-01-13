@@ -37,6 +37,8 @@ flag = True
 for i in range(x):
     score = 0
     binary = list(format(i,'b'))
+    for i in range(ingredient_count - len(binary)):
+        binary.insert(i,'0')
     for customer in customer_choice:
         for i,bit in enumerate(binary):
             if customer_choice[customer][i] is int(bit):
@@ -50,6 +52,7 @@ for i in range(x):
         flag = True
     if score > max_score:
         max_score = score
+    # print(binary)
 
-print(ingredients) 
+print(file_data[0]) 
 print(max_score)
