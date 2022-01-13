@@ -91,12 +91,14 @@ def waiting_time_intersection(current_street,elapsed_time, queued_cars, time_per
             car_when_red = 0
             for i in range(1,cycle+1):
                 if(i <= time_on):
-                    queue[elapsed_time_dup+i] = cars_when_red= queue[elapsed_time_dup] - i
+                    queue[current_street][elapsed_time_dup+i] = cars_when_red= queue[current_street][elapsed_time_dup] - i
                 else:
-                    queue[elapsed_time_dup+i] = cars_when_red
+                    queue[current_street][elapsed_time_dup+i] = cars_when_red
             cars_left -= time_on
             elapsed_time_dup += cycle
         total_time += cars_left
+        for i in range(1,cars_left+1):
+            queue[current_street][elapsed_time_dup + i] = queue[current_street][elapsed_time_dup] - i
         return total_time
 
 total_points = 0
@@ -111,9 +113,11 @@ for car in rd.car_paths:
             break
         time_elapsed += waiting_time_intersection(car[i],time_elapsed,queue[car[i]][time_elapsed],car_freq_elapsed[car[i]],intersection_cycle_time[rd.intersection_in[car[i]]])
 
-    print(time_elapsed)
+    # print(time_elapsed)
     if time_elapsed <= int(rd.duration):
         total_points += int(rd.points)
         total_points += int(rd.duration) - time_elapsed
 
+print(queue)
+print(car_freq_elapsed)
 print(total_points)
