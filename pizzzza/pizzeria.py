@@ -1,6 +1,6 @@
 import math
 
-with open("d_difficult.in.txt",'r',encoding='utf-8') as f:
+with open("c_coarse.in.txt",'r',encoding='utf-8') as f:
     file_data = f.read()
 
 file_data = file_data.split('\n')
@@ -37,7 +37,7 @@ for i,file in enumerate(file_data):
 
 max_score = 0
 flag = True
-for i in range(0,x,pow(i,3)):
+for i in range(0,x):
     score = 0
     binary = list(format(i,'b'))
     for i in range(ingredient_count - len(binary)):
@@ -55,9 +55,11 @@ for i in range(0,x,pow(i,3)):
         flag = True
     if score > max_score:
         max_score = score
+        
+        print(binary)
     if i % 50 == 0:
         print("*")
     # print(binary)
-
+print(ingredients)
 print(file_data[0]) 
 print(max_score)
