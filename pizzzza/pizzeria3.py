@@ -1,6 +1,6 @@
 import math
 
-with open("d_difficult.in.txt",'r',encoding='utf-8') as f:
+with open("c_coarse.in.txt",'r',encoding='utf-8') as f:
     file_data = f.read()
 
 file_data = file_data.split('\n')
