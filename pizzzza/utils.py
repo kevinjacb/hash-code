@@ -30,3 +30,10 @@ def evaluate(ingredients, likes, dislikes):
         if likes[i][1].issubset(ingredients) and len(dislikes[i][1].intersection(ingredients)) == 0:
             score += 1
     return score
+
+def fast_evaluate(chosen, likes, dislikes):
+    score = 0
+    for like, dislike in zip(likes, dislikes):
+        if like == like & chosen and chosen & dislike == 0:
+            score += 1
+    return score
